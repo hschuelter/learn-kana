@@ -13,23 +13,23 @@ const buttonStyle = {
 }
 
 const defaultStyle = {
-	height: 180, 
-	width: 180,
+	height: 120, 
+	width: 120,
 	padding: '8px',
 	color: 'black'
 }
 
 const correctStyle = {
-	height: 180, 
-	width: 180,
+	height: 120, 
+	width: 120,
 	padding: '8px',
 	backgroundColor: '#0c0',
 	color: 'black'
 }
 
 const wrongStyle = {
-	height: 180, 
-	width: 180,
+	height: 120, 
+	width: 120,
 	padding: '8px',
 	backgroundColor: '#f00',
 	color: 'black'
@@ -211,7 +211,7 @@ function Game() {
                         <p>{secondCard.description}</p>
                 </Paper>
 			</div>
-			<div style={{display: 'flex'}}>
+			<div className="buttons">
 				<Paper className='reset-button' elevation={4} style={buttonStyle}> Streak: {count} </Paper>
 				<Paper className='reset-button' elevation={4} style={buttonStyle} onClick={handleClickReset}> <b>NEXT ➔</b> </Paper>
 			</div>

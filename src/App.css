@@ -15,7 +15,7 @@ body {
 
 .title {
 	font-weight: 700;
-	font-size: 48px;
+	font-size: 40px;
 }
 
 .example {
@@ -62,15 +62,12 @@ body {
 }
 
 .reset-button {
-	/* margin: auto; */
-	/* margin-top: 16px; */
-	margin: 16px auto 0px;
-	/* padding: 2px; */
-	/* width: 30%; */
-	
-	/* border: 2px solid black; */
-	/* border-radius: 8px; */
-	/* background-color: white; */
+	margin-right: 16px;
+}
+
+.reset-button:last-child {
+	margin-right: 0px;
+
 }
 
 .reset-button:hover {
@@ -78,4 +75,9 @@ body {
 	background-color: #eee;
 	transition-duration: 0.5s;
 
+}
+
+.buttons {
+	display: flex;
+	margin-top: 48px;
 }
