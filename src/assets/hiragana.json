@@ -1,0 +1,59 @@
+[
+	{ "kana": "あ", "roumaji": "a" },
+	{ "kana": "い", "roumaji": "i" },
+	{ "kana": "う", "roumaji": "u" },
+	{ "kana": "え", "roumaji": "e" },
+	{ "kana": "お", "roumaji": "o" },
+
+	{ "kana": "か", "roumaji": "ka" },
+	{ "kana": "き", "roumaji": "ki" },
+	{ "kana": "く", "roumaji": "ku" },
+	{ "kana": "け", "roumaji": "ke" },
+	{ "kana": "こ", "roumaji": "ko" },
+
+	{ "kana": "さ", "roumaji": "sa" },	
+	{ "kana": "し", "roumaji": "si" },
+	{ "kana": "す", "roumaji": "su" },
+	{ "kana": "せ", "roumaji": "se" },
+	{ "kana": "そ", "roumaji": "so" },
+
+	{ "kana": "た", "roumaji": "ta" },	
+	{ "kana": "ち", "roumaji": "ti" },
+	{ "kana": "つ", "roumaji": "tsu" },
+	{ "kana": "て", "roumaji": "te" },
+	{ "kana": "と", "roumaji": "to" },
+
+	{ "kana": "な", "roumaji": "na" },	
+	{ "kana": "に", "roumaji": "ni" },
+	{ "kana": "ぬ", "roumaji": "nu" },
+	{ "kana": "ね", "roumaji": "ne" },
+	{ "kana": "の", "roumaji": "no" },
+
+	{ "kana": "は", "roumaji": "ha" },	
+	{ "kana": "ひ", "roumaji": "hi" },
+	{ "kana": "ふ", "roumaji": "hu" },
+	{ "kana": "へ", "roumaji": "he" },
+	{ "kana": "ほ", "roumaji": "ho" },
+
+	{ "kana": "ま", "roumaji": "ma" },	
+	{ "kana": "み", "roumaji": "mi" },
+	{ "kana": "む", "roumaji": "mu" },
+	{ "kana": "め", "roumaji": "me" },
+	{ "kana": "も", "roumaji": "mo" },
+
+	{ "kana": "や", "roumaji": "ya" },	
+	{ "kana": "ゆ", "roumaji": "yu" },
+	{ "kana": "よ", "roumaji": "yo" },
+
+	{ "kana": "ら", "roumaji": "ra" },	
+	{ "kana": "り", "roumaji": "ri" },
+	{ "kana": "る", "roumaji": "ru" },
+	{ "kana": "れ", "roumaji": "re" },
+	{ "kana": "ろ", "roumaji": "ro" },
+
+	{ "kana": "わ", "roumaji": "wa" },	
+	{ "kana": "ゐ", "roumaji": "wi" },
+	{ "kana": "ゑ", "roumaji": "we" },
+	{ "kana": "を", "roumaji": "wo" },
+	{ "kana": "ん", "roumaji": "n" }
+]

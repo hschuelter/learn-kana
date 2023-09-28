@@ -3,6 +3,7 @@ import '../App.css'
 
 import Card from './Card';
 import { Paper } from '@mui/material';
+// import alphabet from '../assets/hiragana.json'
 
 const buttonStyle = {
 	height: 20, 
@@ -35,80 +36,19 @@ const wrongStyle = {
 	color: 'black'
 }
 
-const hiraganas = [
-	{ title: 'あ', description: 'a' },
-	{ title: 'い', description: 'i' },
-	{ title: 'う', description: 'u' },
-	{ title: 'え', description: 'e' },
-	{ title: 'お', description: 'o' },
+function RandomizeKanas(alphabet) {
+	var first = Math.floor(Math.random() * alphabet.length) % alphabet.length;
+	var second = Math.floor(Math.random() * alphabet.length) % alphabet.length;
 
-	{ title: 'か', description: 'ka' },
-	{ title: 'き', description: 'ki' },
-	{ title: 'く', description: 'ku' },
-	{ title: 'け', description: 'ke' },
-	{ title: 'こ', description: 'ko' },
-
-	{ title: 'さ', description: 'sa' },	
-	{ title: 'し', description: 'si' },
-	{ title: 'す', description: 'su' },
-	{ title: 'せ', description: 'se' },
-	{ title: 'そ', description: 'so' },
-
-	{ title: 'た', description: 'ta' },	
-	{ title: 'ち', description: 'ti' },
-	{ title: 'つ', description: 'tsu' },
-	{ title: 'て', description: 'te' },
-	{ title: 'と', description: 'to' },
-
-	{ title: 'な', description: 'na' },	
-	{ title: 'に', description: 'ni' },
-	{ title: 'ぬ', description: 'nu' },
-	{ title: 'ね', description: 'ne' },
-	{ title: 'の', description: 'no' },
-
-	{ title: 'は', description: 'ha' },	
-	{ title: 'ひ', description: 'hi' },
-	{ title: 'ふ', description: 'hu' },
-	{ title: 'へ', description: 'he' },
-	{ title: 'ほ', description: 'ho' },
-
-	{ title: 'ま', description: 'ma' },	
-	{ title: 'み', description: 'mi' },
-	{ title: 'む', description: 'mu' },
-	{ title: 'め', description: 'me' },
-	{ title: 'も', description: 'mo' },
-
-	{ title: 'や', description: 'ya' },	
-	{ title: 'ゆ', description: 'yu' },
-	{ title: 'よ', description: 'yo' },
-
-	{ title: 'ら', description: 'ra' },	
-	{ title: 'り', description: 'ri' },
-	{ title: 'る', description: 'ru' },
-	{ title: 'れ', description: 're' },
-	{ title: 'ろ', description: 'ro' },
-
-	{ title: 'わ', description: 'wa' },	
-	{ title: 'ゐ', description: 'wi' },
-	{ title: 'ゑ', description: 'we' },
-	{ title: 'を', description: 'wo' },
-	{ title: 'ん', description: 'n' }
-]
-
-
-function RandomizeKanas() {
-	var first = Math.floor(Math.random() * hiraganas.length) % hiraganas.length;
-	var second = Math.floor(Math.random() * hiraganas.length) % hiraganas.length;
-
-	if (first == second) second = (second + 1) % hiraganas.length;
+	if (first == second) second = (second + 1) % alphabet.length;
 
 	return {first, second};
 }
 
 function MakeCard(hiragana, isCorrect) {
     var card = {
-        title: hiragana.title,
-        description: hiragana.description,
+        kana: hiragana.kana,
+        roumaji: hiragana.roumaji,
         answerStyle: isCorrect ? correctStyle : wrongStyle
     };
 
@@ -116,7 +56,7 @@ function MakeCard(hiragana, isCorrect) {
 }
 
 
-function Game() {
+function Game({ alphabet }) {
     
     const handleClickKana = () => {
         setIsActive(true);
@@ -149,7 +89,7 @@ function Game() {
     }
 
     const handleClickReset = () => {
-        values = RandomizeKanas();
+        values = RandomizeKanas(alphabet);
         first = values.first;
         second = values.second;
 
@@ -158,8 +98,8 @@ function Game() {
         setIsFirst(bool);
         setisShown(false);
         setIsActive(false);
-        setFirstCard(MakeCard(hiraganas[first], bool));
-        setSecondCard(MakeCard(hiraganas[second], !bool));
+        setFirstCard(MakeCard(alphabet[first], bool));
+        setSecondCard(MakeCard(alphabet[second], !bool));
     };
 
     
@@ -167,22 +107,22 @@ function Game() {
     const [isActive, setIsActive] = useState(false);
     const [count, setCount] = useState(0);
     
-    var values = RandomizeKanas();
+    var values = RandomizeKanas(alphabet);
     var first = values.first;
 	var second = values.second;
 
     var bool = Math.random() < 0.5;
     const [isFirst, setIsFirst] = useState(bool);
 
-    const [firstCard, setFirstCard] = useState(MakeCard(hiraganas[first], bool));
-    const [secondCard, setSecondCard] = useState(MakeCard(hiraganas[second], !bool));
+    const [firstCard, setFirstCard] = useState(MakeCard(alphabet[first], bool));
+    const [secondCard, setSecondCard] = useState(MakeCard(alphabet[second], !bool));
 
 
 	return (
         <div>
 			<div style={{display: 'flex', justifyContent: 'center'}}>
 
-				<div className='example'> {isFirst ? firstCard.title : secondCard.title} </div>
+				<div className='example'> {isFirst ? firstCard.kana : secondCard.kana} </div>
 			</div>
 			<div className="dictionary">
 				{/* { cards.map((item) => item) } */}
@@ -193,10 +133,10 @@ function Game() {
                     onClick={handleClickFirstKana}
                     elevation={4}>
                         { (isActive) ? 
-                            <h1 className='break'>{firstCard.title}</h1> : 
+                            <h1 className='break'>{firstCard.kana}</h1> : 
                             <div ></div>
                         }
-                        <p>{firstCard.description}</p>
+                        <p>{firstCard.roumaji}</p>
                 </Paper>
 
                 <Paper
@@ -205,15 +145,15 @@ function Game() {
                     onClick={handleClickSecondKana}
                     elevation={4}>
                         { (isActive) ? 
-                            <h1 className='break'>{secondCard.title}</h1> : 
+                            <h1 className='break'>{secondCard.kana}</h1> : 
                             <div ></div>
                         }
-                        <p>{secondCard.description}</p>
+                        <p>{secondCard.roumaji}</p>
                 </Paper>
 			</div>
 			<div className="buttons">
 				<Paper className='reset-button' elevation={4} style={buttonStyle}> Streak: {count} </Paper>
-				<Paper className='reset-button' elevation={4} style={buttonStyle} onClick={handleClickReset}> <b>NEXT ➔</b> </Paper>
+				<Paper className='reset-button' id='next-button' elevation={4} style={buttonStyle} onClick={handleClickReset}> <b>NEXT ➔</b> </Paper>
 			</div>
         </div>
 	)
