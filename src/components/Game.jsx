@@ -133,7 +133,7 @@ function Game({ alphabet }) {
                     onClick={handleClickFirstKana}
                     elevation={4}>
                         { (isActive) ? 
-                            <h1 className='break'>{firstCard.kana}</h1> : 
+                            <div className='kana break'>{firstCard.kana}</div> : 
                             <div ></div>
                         }
                         <p>{firstCard.roumaji}</p>
@@ -145,7 +145,7 @@ function Game({ alphabet }) {
                     onClick={handleClickSecondKana}
                     elevation={4}>
                         { (isActive) ? 
-                            <h1 className='break'>{secondCard.kana}</h1> : 
+                            <div className='kana break'>{secondCard.kana}</div> : 
                             <div ></div>
                         }
                         <p>{secondCard.roumaji}</p>

@@ -122,3 +122,9 @@ body {
 	box-shadow: 0 0px 0px rgba(150, 150, 150, 0.5);
 
 }
+
+.kana {
+	font-size: 64px;
+	font-weight: 600;
+	margin-bottom: 64px;
+}
