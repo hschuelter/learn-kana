@@ -2,8 +2,6 @@ import { useState } from 'react'
 import '../App.css'
 
 import { Paper } from '@mui/material';
-// import hiragana from '../assets/hiragana.json'
-// import katakana from '../assets/katakana.json'
 
 function Alphabet({ SetAlphabet, SetName, currentTheme, hiragana, katakana }) {
 
