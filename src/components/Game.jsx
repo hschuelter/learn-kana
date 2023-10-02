@@ -3,35 +3,17 @@ import '../App.css'
 
 import Card from './Card';
 import { Paper } from '@mui/material';
-// import alphabet from '../assets/hiragana.json'
-
-const buttonStyle = {
-	height: 20, 
-	width: 120,
-	padding: '8px',
-	backgroundColor: 'white',
-	color: 'black'
-}
 
 const defaultStyle = {
-	height: 120, 
-	width: 120,
-	padding: '8px',
 	color: 'black'
 }
 
 const correctStyle = {
-	height: 120, 
-	width: 120,
-	padding: '8px',
 	backgroundColor: '#0c0',
 	color: 'black'
 }
 
 const wrongStyle = {
-	height: 120, 
-	width: 120,
-	padding: '8px',
 	backgroundColor: '#f00',
 	color: 'black'
 }
@@ -56,7 +38,7 @@ function MakeCard(hiragana, isCorrect) {
 }
 
 
-function Game({ alphabet }) {
+function Game({ name, alphabet, currentTheme }) {
     
     const handleClickKana = () => {
         setIsActive(true);
@@ -119,16 +101,16 @@ function Game({ alphabet }) {
 
 
 	return (
-        <div>
+        <div style={currentTheme}>
 			<div style={{display: 'flex', justifyContent: 'center'}}>
 
-				<div className='example'> {isFirst ? firstCard.kana : secondCard.kana} </div>
+				<Paper elevation={4} style={currentTheme} className='example'> {isFirst ? firstCard.kana : secondCard.kana} </Paper>
 			</div>
 			<div className="dictionary">
 				{/* { cards.map((item) => item) } */}
                 
                 <Paper
-                    style={ isActive ? firstCard.answerStyle : defaultStyle}
+                    style={ isActive ? firstCard.answerStyle : currentTheme}
                     className='card'
                     onClick={handleClickFirstKana}
                     elevation={4}>
@@ -140,7 +122,7 @@ function Game({ alphabet }) {
                 </Paper>
 
                 <Paper
-                    style={ isActive ? secondCard.answerStyle : defaultStyle}
+                    style={ isActive ? secondCard.answerStyle : currentTheme}
                     className='card'
                     onClick={handleClickSecondKana}
                     elevation={4}>
@@ -152,8 +134,8 @@ function Game({ alphabet }) {
                 </Paper>
 			</div>
 			<div className="buttons">
-				<Paper className='reset-button' elevation={4} style={buttonStyle}> Streak: {count} </Paper>
-				<Paper className='reset-button' id='next-button' elevation={4} style={buttonStyle} onClick={handleClickReset}> <b>NEXT ➔</b> </Paper>
+				<Paper className='reset-button' elevation={4} style={currentTheme}> Streak: {count} </Paper>
+				<Paper className='reset-button' id='next-button' elevation={4} style={currentTheme} onClick={handleClickReset}> <b>NEXT ➔</b> </Paper>
 			</div>
         </div>
 	)
